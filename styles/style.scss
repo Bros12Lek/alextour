@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: inter;
+}
+
+//importação das fontes
+@import 'https://fonts.googleapis.com/css2?family=Croissant+One&family=Great+Vibes&family=Inter:wght@300;400;500;600&family=Merriweather:ital,wght@1,300&family=Raleway:ital,wght@1,300&family=Ruwudu&display=swap';
+@import 'https://db.onlinewebfonts.com/c/4c2ebb64dc7b336dd993427896b02bcd?family=ArzachelRegular';
+
+//importação dos módulos
+@import './modules/index.scss';
+@import './modules/aside.scss';

@@ -1,0 +1,32 @@
+aside{
+    transition: all .8s;
+    width: 50%;
+    position: absolute;
+    top: 0;
+    left: -10rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(157, 188, 255,.9);
+    z-index: 3;
+
+    .icon{
+        width: 2rem;
+        height: 2rem;
+    }
+
+    a{
+        margin-left: 8%;
+        margin-top: 8%;
+        text-decoration: none;
+        color: #0e4861;
+        font-weight:bolder
+    }
+}
+
+.active{
+    transition: all .8s;
+
+    position: absolute;
+    left: 0 !important;
+}
