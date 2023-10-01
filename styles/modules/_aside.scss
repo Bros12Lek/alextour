@@ -8,7 +8,7 @@ aside{
     display: flex;
     flex-direction: column;
     background-color: rgba(157, 188, 255,.9);
-    z-index: 3;
+    z-index: 10;
 
     .icon{
         width: 2rem;
@@ -17,7 +17,7 @@ aside{
 
     a{
         margin-left: 8%;
-        margin-top: 8%;
+        margin-top: 18%;
         text-decoration: none;
         color: #0e4861;
         font-weight:bolder

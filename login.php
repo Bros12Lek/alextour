@@ -1,6 +1,10 @@
 <?php
   session_start(); 
+  if($_SESSION['login'] === "logado"){
+    header("Location:./index.php");  
+  }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,7 +13,7 @@
     <link rel="stylesheet" href="./styles/style.css">
     <title>Viagens - Alex Tour</title>
 </head>
-<body class="historico" >
+<body class="loginBody" >
 <header>
         <div class="logo">
             <h1 id="title">
@@ -25,14 +29,27 @@
     </header>
     <aside>
       <a href="./index.php">Página Principal</a>
-      <a style="text-decoration:underline #0e4861;" href="./viagens.php">Histórico de Viagens <img class="icon" src="./imgs/iconBus.png" alt="" srcset=""></a>
-      <a id="admin"  href="./admin.php">Admin</a>
+      <a  href="./viagens.php">Histórico de Viagens <img class="icon" src="./imgs/iconBus.png" alt="" srcset=""></a>
+      <a id="admin" href="./admin.php">Admin</a>
       <a href="./cadastro.php">Cadastro</a>
-      <a href="./login.php">Login</a>
+      <a style="text-decoration:underline #0e4861;" href="./login.php">Login</a>
       <a id="logOut" href="./src/logOut-server.php">Sair</a>
     </aside>
-    <h2 style="text-align: center;color:#0e4861;">Nossas Saídinhas</h2>
+    <form method="POST" action="./src/login-server.php">
+        <div class="inputbox">
+          <input id="email" type="email" name="email" placeholder="Digite seu email">
+          <span>Email</span>
+          <i></i>
+        </div>
+        <div class="inputbox">
+          <input type="password" name="senha" id="senha" placeholder="Digite sua senha"><img width="16" class="closedEye" height="16" src="https://img.icons8.com/small/16/closed-eye.png" alt="closed-eye"/>
+          <span>Senha</span>
+          <i></i>
+        </div>
+        <button class="subForm" type="submit">Logar</button>
+    </form>
     <script src="./src/aside.js" ></script>
+    <script src="./src/closedEye.js"></script>
     <script>
       let login = "<?php echo $_SESSION['login']?>";
       let tipoConta = "<?php echo $_SESSION['tipo']?>"
