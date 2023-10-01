@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./styles/style.css">
     <title>Admin - Alex Tour</title>
 </head>
-<body>
+<body class="adminBody">
 <header>
         <div class="logo">
             <h1 id="title">
@@ -35,6 +35,11 @@
       <a href="./login.php">Login</a>
       <a id="logOut" href="./src/logOut-server.php">Sair</a>
     </aside>
+    <div class="container-admin">
+      <a href="./criar.php"><button class="subForm">Criar</button></a>
+      <a href="./editar.php"><button class="subForm">Editar</button></a>
+      <a href="./deletar.php"><button class="subForm">Deletar</button></a>
+    </div>
     <script src="./src/aside.js" ></script>
     <script>
       let login = "<?php echo $_SESSION['login']?>";
