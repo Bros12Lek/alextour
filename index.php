@@ -7,6 +7,7 @@ if(!isset($_SESSION['tipo']) || !isset($_SESSION['login'])){
   $_SESSION['login'] = "deslogado";
   $_SESSION['tipo'] = "";
 }
+
 ?>
 
 <!DOCTYPE html>
