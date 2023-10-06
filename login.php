@@ -47,6 +47,7 @@
           <i></i>
         </div>
         <button class="subForm" type="submit">Logar</button>
+        <p>Não tem conta ? Crie uma <a style="text-decoration: none; color:#0e4861;" href="./cadastro.php">Clicando Aqui</a></p>
     </form>
     <script src="./src/aside.js" ></script>
     <script src="./src/closedEye.js"></script>

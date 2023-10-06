@@ -57,7 +57,7 @@
       </div>
 
       <div class="inputbox">
-        <input class="confirmaSenha" name="senha" placeholder="Confirme sua senha">
+        <input class="confirmaSenha" name="senha" type="password" placeholder="Confirme sua senha">
         <span>Confirme sua senha</span>
         <i></i>
       </div>

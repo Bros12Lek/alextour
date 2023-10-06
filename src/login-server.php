@@ -21,7 +21,9 @@ if($statement->rowCount() >= 1){
             $_SESSION['tipo'] = "comun";
         }
         header("Location:../index.php");
+    }else{
+        header("Location:../login.php");
     }
 }else{
-    echo "Alguma Coisa está errada !";
+    header("Location:../login.php");
 }
