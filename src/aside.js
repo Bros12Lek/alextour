@@ -7,5 +7,3 @@ toggle_menu.addEventListener("click", (event) =>{
     aside.classList.toggle("active");
     imgLogo.classList.toggle("rotate")
 })
-
-console.log(toggle_menu)

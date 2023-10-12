@@ -38,17 +38,24 @@ if($_SESSION['tipo'] !== "admin"){
     </aside>
 
 
-    <main>
+    <main class="mainCriar">
         <div class="container">
-            <form class="criacaoForm" enctype="multipart/form-data" method="post" action="./src/criar.php">
+            <form class="criacaoForm" enctype="multipart/form-data" method="post" action="./src/criar-server.php">
                 <label for="tituloViagem">Titulo da Viagem</label>
-                <input type="text" id="tituloViagem" placeholder="Titulo da viagem">
+                <input required type="text" id="tituloViagem" placeholder="Titulo da viagem">
+                <label for="lugar">Lugar</label>
+                <input required type="text" name="lugar" id="lugar" placeholder="Digite o lugar">
                 <label for="inicioViagem">Inicio da Viagem</label>
-                <input type="text" id="inicioViagem" name="inicioViagem" placeholder="dd/mm/yyyy" maxlength="8">
-                <label for="finalViagem">Final da Viagem</label>
-                <input type="text" id="fimViagem" name="fimViagem" placeholder="dd/mm/yyyy" maxlength="8">
-                <textarea name="areaRoteiro" cols="30" rows="20" placeholder="Roteiro"></textarea>
-                <textarea name="areaPacote" id="areaPacote" cols="30" rows="20" placeholder="Pacote"></textarea>
+                <input required type="text" id="inicioViagem" name="inicioViagem" placeholder="dd/mm/yyyy" maxlength="10">
+                <label for="fimViagem">Final da Viagem</label>
+                <input required type="text" id="fimViagem" name="fimViagem" placeholder="dd/mm/yyyy" maxlength="10">
+                <textarea name="areaRoteiro" cols="30" rows="12" placeholder="Roteiro"></textarea>
+                <textarea name="areaPacote" id="areaPacote" cols="30" rows="12" placeholder="Pacote"></textarea>
+                <input type="file" name="img_principal" id="img_principal">
+                <input required type="file" name="img_lugar" id="img_lugar">
+                <input required type="file" name="img_descritiva" id="img_descritiva">
+                <input type="file" name="img_banner" id="img_banner">
+                <button type="submit" class="subForm">Enviar Viagem</button>
             </form>
         </div>
     </main>
@@ -64,5 +71,7 @@ if($_SESSION['tipo'] !== "admin"){
         logOut.style.display = "none";
       }
     </script>
+    <script type="module" src="./src/criar.js"></script>
+    <script src="./src/aside.js"></script>
 </body>
 </html>
