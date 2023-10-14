@@ -29,7 +29,7 @@ if($_SESSION['tipo'] !== "admin"){
         <img id="imgLogo" src="./imgs/logoAlexTour-mobile.png" alt="">
     </header>
     <aside>
-      <a style="text-decoration:underline #0e4861;" href="./index.php">Página Principal</a>
+      <a href="./index.php">Página Principal</a>
       <a href="./viagens.php">Histórico de Viagens <img class="icon" src="./imgs/iconBus.png" alt="" srcset=""></a>
       <a id="admin" href="./admin.php">Admin</a>
       <a href="./cadastro.php">Cadastro</a>
@@ -42,7 +42,7 @@ if($_SESSION['tipo'] !== "admin"){
         <div class="container">
             <form class="criacaoForm" enctype="multipart/form-data" method="post" action="./src/criar-server.php">
                 <label for="tituloViagem">Titulo da Viagem</label>
-                <input required type="text" id="tituloViagem" placeholder="Titulo da viagem">
+                <input required type="text" id="tituloViagem" name="tituloViagem" placeholder="Titulo da viagem">
                 <label for="lugar">Lugar</label>
                 <input required type="text" name="lugar" id="lugar" placeholder="Digite o lugar">
                 <label for="inicioViagem">Inicio da Viagem</label>
@@ -51,10 +51,10 @@ if($_SESSION['tipo'] !== "admin"){
                 <input required type="text" id="fimViagem" name="fimViagem" placeholder="dd/mm/yyyy" maxlength="10">
                 <textarea name="areaRoteiro" cols="30" rows="12" placeholder="Roteiro"></textarea>
                 <textarea name="areaPacote" id="areaPacote" cols="30" rows="12" placeholder="Pacote"></textarea>
-                <input type="file" name="img_principal" id="img_principal">
-                <input required type="file" name="img_lugar" id="img_lugar">
-                <input required type="file" name="img_descritiva" id="img_descritiva">
-                <input type="file" name="img_banner" id="img_banner">
+                <p> Imagem Principal <br><input type="file" name="img_principal" id="img_principal"></p>
+                <p> Imagem do Lugar <br><input required type="file" name="img_lugar" id="img_lugar"></p>
+                <p>imagem descritiva <br><input required type="file" name="img_descritiva" id="img_descritiva"></p>
+                <p>Banner <br><input type="file" name="img_banner" id="img_banner"></p>
                 <button type="submit" class="subForm">Enviar Viagem</button>
             </form>
         </div>

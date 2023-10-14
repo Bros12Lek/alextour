@@ -9,6 +9,12 @@ aside{
     flex-direction: column;
     background-color: rgba(157, 188, 255,.9);
     z-index: 10;
+    @media only screen and (min-width:375px){
+        left: -12rem;
+    }
+    @media only screen and (min-width:425px){
+        left: -15rem;
+    }
 
     .icon{
         width: 2rem;

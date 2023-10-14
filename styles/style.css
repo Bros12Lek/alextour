@@ -79,6 +79,16 @@ aside {
   background-color: rgba(157, 188, 255, 0.9);
   z-index: 10;
 }
+@media only screen and (min-width: 375px) {
+  aside {
+    left: -12rem;
+  }
+}
+@media only screen and (min-width: 425px) {
+  aside {
+    left: -15rem;
+  }
+}
 aside .icon {
   width: 2rem;
   height: 2rem;
@@ -442,6 +452,7 @@ aside a {
   flex-direction: column;
   width: 70%;
   margin: auto;
+  overflow-x: hidden;
 }
 .mainCriar form input[type=text] {
   outline: none;
@@ -455,9 +466,11 @@ aside a {
   border-bottom: 0.5rem solid gray;
   transition: all 0.7s;
 }
-.mainCriar form input[type=file] {
-  margin-top: 6%;
-  margin-bottom: 5%;
+.mainCriar form p {
+  margin-top: 12%;
+}
+.mainCriar form p input[type=file] {
+  margin-top: 5%;
 }
 .mainCriar form label {
   margin-top: 5%;
