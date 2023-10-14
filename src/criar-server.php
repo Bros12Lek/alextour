@@ -1,6 +1,7 @@
-<?php 
+a<?php 
 session_start();
 require_once("./src/mysqlConnection.php");
+require_once("./src/functions.php");
 
 if($_SESSION['tipo'] === "admin"){
     
@@ -20,12 +21,16 @@ if($_SESSION['tipo'] === "admin"){
         $fim_viagem = $_POST['fimViagem'];
         $roteiro = $_POST['areaRoteiro'];
         $pacote = $_POST['areaPacote'];
+        $ascentos = $_POST['ascentos'];
+        $valor = $_POST['valor'];
 
-        $array_campos = [$titulo_viagem, $lugar, $inicio_viagem, $fim_viagem, $roteiro, $pacote];
+        //tratamento de datas
+        $data_incioSQL = dataBrasilToMysql($inicio_viagem);
+        $data_fimSQL = dataBrasilToMysql($fim_viagem);        
 
 
         //lugar que vai as imagens do banco de dados
-        $pasta = "imgDB/";
+        $pasta = "./src/imgDB/";
 
         //nomes originais
         $nome_principal = $img_principal['name'];
@@ -34,6 +39,7 @@ if($_SESSION['tipo'] === "admin"){
         $nome_banner = $img_banner['name'];
 
         $novoNome = uniqid();
+       
 
         $extensao_img_principal = strtolower(pathinfo($nome_principal, PATHINFO_EXTENSION));
         $extensao_img_lugar = strtolower(pathinfo($nome_principal, PATHINFO_EXTENSION));
@@ -49,15 +55,35 @@ if($_SESSION['tipo'] === "admin"){
             }
         }
 
-        $move_principal = move_uploaded_file($img_principal["tmp_name"], $pasta . $novoNome . "." . strtolower(pathinfo($img_principal['name'], PATHINFO_EXTENSION)));
-        $move_lugar = move_uploaded_file($img_lugar["tmp_name"], $pasta . $novoNome . "." . strtolower(pathinfo($img_lugar['name'], PATHINFO_EXTENSION)));
-        $move_descritiva = move_uploaded_file($img_descritiva["tmp_name"], $pasta . $novoNome . "." . strtolower(pathinfo($img_descritiva['name'], PATHINFO_EXTENSION)));
-        $move_banner = move_uploaded_file($img_banner["tmp_name"], $pasta . $novoNome . "." . strtolower(pathinfo($img_banner['name'], PATHINFO_EXTENSION)));
-
-        if($move_principal && $move_lugar && $move_descritiva){
-            echo "";
+        $array_uploaded = [];
+        
+        $i = 0;
+        foreach($array_imgs as $value){
+            $i++;
+            if(move_uploaded_file($value["tmp_name"], $pasta . $novoNome. $i. "." . strtolower(pathinfo($value['name'], PATHINFO_EXTENSION)))){
+                echo "<a href='imgDB/$novoNome$i.".strtolower(pathinfo($value['name'],PATHINFO_EXTENSION))."'>clique aqui</a><br>";
+                $valueOf = "imgDB/$novoNome$i.". strtolower(pathinfo($value['name'],PATHINFO_EXTENSION));
+                array_push($array_uploaded, $valueOf);
+            }
         }
 
+        $querry = "INSERT INTO viagens(foto_principal,lugar,foto_lugar,foto_descritiva,ascentos,roteiro,pacote,inicio,fim,valor,foto_banner) VALUES(:foto_principal,:lugar,:foto_lugar,:foto_descritiva,:ascentos,:roteiro,:pacote,:inicio,:fim,:valor,:foto_banner)";
+        $statement = $pdo->prepare($querry);
+        $statement->bindValue(":foto_principal",$array_uploaded[0]);
+        $statement->bindValue(":lugar",$lugar);
+        $statement->bindValue(":foto_lugar",$array_uploaded[1]);
+        $statement->bindValue(":foto_descritiva", $array_uploaded[2]);
+        $statement->bindValue(":ascentos",$ascentos);
+        $statement->bindValue(":roteiro",$roteiro);
+        $statement->bindValue(":pacote",$pacote);
+        $statement->bindValue(":inicio",$data_incioSQL);
+        $statement->bindValue(":fim",$data_fimSQL);
+        $statement->bindValue(":valor",$valor);
+        $statement->bindValue(":foto_banner",$array_uploaded[3]);
+        if($statement->execute()){
+            echo "deu tudo certo ! <br>";
+            
+        }
     }
 
 }

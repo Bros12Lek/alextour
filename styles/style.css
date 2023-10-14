@@ -454,7 +454,7 @@ aside a {
   margin: auto;
   overflow-x: hidden;
 }
-.mainCriar form input[type=text] {
+.mainCriar form input[type=text], .mainCriar form input[type=number] {
   outline: none;
   margin-bottom: 2%;
   width: 100%;

@@ -49,6 +49,10 @@ if($_SESSION['tipo'] !== "admin"){
                 <input required type="text" id="inicioViagem" name="inicioViagem" placeholder="dd/mm/yyyy" maxlength="10">
                 <label for="fimViagem">Final da Viagem</label>
                 <input required type="text" id="fimViagem" name="fimViagem" placeholder="dd/mm/yyyy" maxlength="10">
+                <label for="ascentos">Ascentos</label>
+                <input type="text" name="ascentos" id="ascentos" placeholder="Quantidade de ascentos">
+                <label for="valor">Preço</label>
+                <input type="text" name="valor" id="valor" placeholder="Digite o preço">
                 <textarea name="areaRoteiro" cols="30" rows="12" placeholder="Roteiro"></textarea>
                 <textarea name="areaPacote" id="areaPacote" cols="30" rows="12" placeholder="Pacote"></textarea>
                 <p> Imagem Principal <br><input type="file" name="img_principal" id="img_principal"></p>
