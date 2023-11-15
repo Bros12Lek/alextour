@@ -1,0 +1,26 @@
+footer{
+    background-color: #eee;
+    width: 100%;
+    height: 6rem;
+    margin-top: 15%;
+    border-top: 1rem solid #0e4861;
+    display: flex;
+    position: relative;
+
+    h3{
+        position: absolute;
+        color: #0e4861;
+        top: 45%;
+        left: 15%;
+    }
+
+    nav{
+        position: absolute;
+        right: 15%;
+        top: 30%;
+        ul{
+            display: flex;
+            list-style: none;
+        }
+    }
+}

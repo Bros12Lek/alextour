@@ -1,5 +1,6 @@
 @import 'https://fonts.googleapis.com/css2?family=Croissant+One&family=Great+Vibes&family=Inter:wght@300;400;500;600&family=Merriweather:ital,wght@1,300&family=Raleway:ital,wght@1,300&family=Ruwudu&display=swap';
 @import 'https://db.onlinewebfonts.com/c/4c2ebb64dc7b336dd993427896b02bcd?family=ArzachelRegular';
+@import 'https://fonts.googleapis.com/css2?family=Agbalumo&family=Croissant+One&family=Great+Vibes&family=Inter:wght@300;400;500;600&family=Merriweather:ital,wght@1,300&family=Raleway:ital,wght@1,300&family=Ruwudu&display=swap';
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +12,84 @@ header {
   background-color: #eee;
   height: 8.4rem;
   position: relative;
+  box-shadow: 1px 1px 75px 35px #0e4861;
+  margin-bottom: 15%;
+  border-bottom: 1rem solid #0e4861;
+}
+@media only screen and (max-width: 1023px) {
+  header {
+    height: 9.7rem;
+  }
+}
+header nav ul {
+  position: absolute;
+  top: 2.7rem;
+  right: 13rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 15%;
+}
+@media only screen and (max-width: 1024px) {
+  header nav ul {
+    width: 45%;
+  }
+}
+@media only screen and (max-width: 1440px) {
+  header nav ul {
+    width: 35%;
+  }
+}
+header nav ul li a {
+  text-decoration: none;
+  color: #0e4861;
+  font-weight: 600;
+}
+@media only screen and (max-width: 1023px) {
+  header nav {
+    display: none;
+  }
+}
+header .conta {
+  position: absolute;
+  right: 4rem;
+  top: 1rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  width: 7%;
+  align-items: center;
+}
+header .conta .sair {
+  display: none;
+}
+@media only screen and (min-width: 1440px) {
+  header .conta {
+    width: 5%;
+  }
+}
+@media only screen and (min-width: 2560px) {
+  header .conta {
+    width: 4%;
+  }
+}
+header .conta .loginSide {
+  display: flex;
+  flex-direction: column;
+  transition: all 0.8s;
+}
+header .conta .loginSide a {
+  text-decoration: none;
+  text-align: center;
+  margin-top: 6%;
+  color: #0e4861;
+  font-weight: 600;
+}
+@media only screen and (max-width: 1023px) {
+  header .conta {
+    display: none;
+  }
 }
 header #imgLogo {
   width: 9rem;
@@ -21,6 +100,11 @@ header #imgLogo {
   z-index: 1;
   transition: all 0.8s;
 }
+@media only screen and (min-width: 1024px) {
+  header #imgLogo {
+    display: none;
+  }
+}
 header .toggle-menu {
   position: absolute;
   width: 2.3rem;
@@ -30,10 +114,20 @@ header .toggle-menu {
   opacity: 0;
   z-index: 3;
 }
+@media only screen and (min-width: 1024px) {
+  header .toggle-menu {
+    display: none;
+  }
+}
 header .logo {
-  position: relative;
+  position: absolute;
   height: 6rem;
   width: 62%;
+}
+@media only screen and (min-width: 2560px) {
+  header .logo {
+    left: 12rem;
+  }
 }
 header .logo #title {
   color: #0e4861;
@@ -61,19 +155,83 @@ header .logo .subTittle {
   background-image: url(../../imgs/banner.jpeg);
   box-shadow: 1px 1px 75px 35px #0e4861;
   margin-bottom: 15%;
+  border-radius: 0 0 6px 15px;
+}
+@media only screen and (min-width: 768px) {
+  .banner {
+    height: 20rem;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .banner {
+    display: none;
+  }
 }
 
 .rotate {
   transform: rotate(360deg);
 }
 
+main {
+  width: 100%;
+  height: 100%;
+}
+main h2 {
+  color: #0e4861;
+  text-align: center;
+}
+main .motivos {
+  position: relative;
+  height: auto;
+  width: 80%;
+  margin: auto;
+}
+main .motivos h2 {
+  margin-bottom: 3%;
+}
+main .motivos .pDesc {
+  margin-bottom: 10%;
+}
+main .motivos .descricoes {
+  display: flex;
+  flex-direction: column;
+}
+main .motivos .descricoes .motivo {
+  display: grid;
+  grid-template-rows: 20% 1fr;
+  margin-bottom: 15%;
+}
+main .motivos .descricoes .motivo img {
+  height: 50px;
+  grid-row: 1/2;
+  grid-column: 1/2;
+  border-radius: 10px;
+}
+main .motivos .descricoes .motivo .motivoTittle {
+  grid-row: 1/2;
+  justify-self: end;
+  grid-column: 1/3;
+  align-self: center;
+}
+@media only screen and (min-width: 420px) {
+  main .motivos .descricoes .motivo .motivoTittle {
+    justify-self: center;
+  }
+}
+main .motivos .descricoes .motivo .motivoDesc {
+  margin-top: 5%;
+  grid-column: 1/3;
+  justify-self: center;
+  font-size: large;
+}
+
 aside {
   transition: all 0.8s;
   width: 50%;
   position: absolute;
+  height: 100%;
   top: 0;
   left: -10rem;
-  height: 100%;
   display: flex;
   flex-direction: column;
   background-color: rgba(157, 188, 255, 0.9);
@@ -89,6 +247,17 @@ aside {
     left: -15rem;
   }
 }
+@media only screen and (min-width: 768px) {
+  aside {
+    left: -25rem;
+    width: 28%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  aside {
+    display: none;
+  }
+}
 aside .icon {
   width: 2rem;
   height: 2rem;
@@ -99,6 +268,16 @@ aside a {
   text-decoration: none;
   color: #0e4861;
   font-weight: bolder;
+}
+@media only screen and (min-width: 768px) {
+  aside a {
+    margin-top: 5%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  aside a {
+    margin-top: 5%;
+  }
 }
 
 .active {
@@ -121,17 +300,44 @@ aside a {
 .loginBody header {
   margin-bottom: 50%;
 }
+@media only screen and (min-width: 768px) {
+  .loginBody header {
+    margin-bottom: 20%;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .loginBody header {
+    margin-bottom: 15%;
+  }
+}
+@media only screen and (min-width: 2560px) {
+  .loginBody header {
+    margin-bottom: 4%;
+  }
+}
 .loginBody form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 38%;
+  height: 30%;
   justify-content: space-evenly;
+}
+@media only screen and (min-width: 768px) {
+  .loginBody form {
+    height: 50%;
+  }
+}
+.loginBody form p {
+  font-weight: 500;
+}
+.loginBody form p a {
+  font-weight: 900;
 }
 .loginBody form .closedEye {
   position: absolute;
   top: 1rem;
   right: -2rem;
+  cursor: pointer;
 }
 .loginBody form button {
   width: 40%;
@@ -149,6 +355,17 @@ aside a {
   font-family: inherit;
   font-size: 15px;
   margin-bottom: 10%;
+}
+@media only screen and (min-width: 1440px) {
+  .loginBody form button {
+    width: 20%;
+  }
+}
+@media only screen and (min-width: 2560px) {
+  .loginBody form button {
+    width: 13%;
+    margin-bottom: 2%;
+  }
 }
 .loginBody form button.subForm {
   font-weight: 600;
@@ -195,6 +412,22 @@ aside a {
 .loginBody form .inputbox {
   position: relative;
   width: 196px;
+}
+@media only screen and (min-width: 768px) {
+  .loginBody form .inputbox {
+    width: 40%;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .loginBody form .inputbox {
+    width: 30%;
+    margin-bottom: 2%;
+  }
+}
+@media only screen and (min-width: 2560px) {
+  .loginBody form .inputbox {
+    width: 18%;
+  }
 }
 .loginBody form .inputbox input {
   position: relative;
@@ -246,6 +479,21 @@ aside a {
 .adminBody header {
   margin-bottom: 50%;
 }
+@media only screen and (min-width: 768px) {
+  .adminBody header {
+    margin-bottom: 30%;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .adminBody header {
+    margin-bottom: 15%;
+  }
+}
+@media only screen and (min-width: 2560px) {
+  .adminBody header {
+    margin-bottom: 10%;
+  }
+}
 .adminBody .container-admin {
   display: flex;
   flex-direction: column;
@@ -271,6 +519,17 @@ aside a {
   font-size: 15px;
   margin-top: 3%;
   margin-bottom: 10%;
+}
+@media only screen and (min-width: 768px) {
+  .adminBody .container-admin button {
+    width: 15rem;
+  }
+}
+@media only screen and (min-width: 2560px) {
+  .adminBody .container-admin button {
+    width: 20rem;
+    height: 3rem;
+  }
 }
 .adminBody .container-admin button.subForm {
   font-weight: 600;
@@ -454,6 +713,16 @@ aside a {
   margin: auto;
   overflow-x: hidden;
 }
+@media only screen and (min-width: 1440px) {
+  .mainCriar form {
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 2560px) {
+  .mainCriar form {
+    width: 30%;
+  }
+}
 .mainCriar form input[type=text], .mainCriar form input[type=number] {
   outline: none;
   margin-bottom: 2%;
@@ -541,4 +810,29 @@ aside a {
 .mainCriar form button.subForm:active::before {
   box-shadow: 0 0 0 2px #b18597, 0 0 #ffe3e2;
   transform: translate3d(0, 0, -1em);
+}
+
+footer {
+  background-color: #eee;
+  width: 100%;
+  height: 6rem;
+  margin-top: 15%;
+  border-top: 1rem solid #0e4861;
+  display: flex;
+  position: relative;
+}
+footer h3 {
+  position: absolute;
+  color: #0e4861;
+  top: 45%;
+  left: 15%;
+}
+footer nav {
+  position: absolute;
+  right: 15%;
+  top: 30%;
+}
+footer nav ul {
+  display: flex;
+  list-style: none;
 }/*# sourceMappingURL=style.css.map */

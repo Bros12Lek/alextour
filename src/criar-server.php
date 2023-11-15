@@ -67,23 +67,50 @@ if($_SESSION['tipo'] === "admin"){
             }
         }
 
-        $querry = "INSERT INTO viagens(foto_principal,lugar,foto_lugar,foto_descritiva,ascentos,roteiro,pacote,inicio,fim,valor,foto_banner) VALUES(:foto_principal,:lugar,:foto_lugar,:foto_descritiva,:ascentos,:roteiro,:pacote,:inicio,:fim,:valor,:foto_banner)";
-        $statement = $pdo->prepare($querry);
-        $statement->bindValue(":foto_principal",$array_uploaded[0]);
-        $statement->bindValue(":lugar",$lugar);
-        $statement->bindValue(":foto_lugar",$array_uploaded[1]);
-        $statement->bindValue(":foto_descritiva", $array_uploaded[2]);
-        $statement->bindValue(":ascentos",$ascentos);
-        $statement->bindValue(":roteiro",$roteiro);
-        $statement->bindValue(":pacote",$pacote);
-        $statement->bindValue(":inicio",$data_incioSQL);
-        $statement->bindValue(":fim",$data_fimSQL);
-        $statement->bindValue(":valor",$valor);
-        $statement->bindValue(":foto_banner",$array_uploaded[3]);
-        if($statement->execute()){
-            echo "deu tudo certo ! <br>";
-            
+        $dateNow = date('d/m/Y');
+        $date = explode("/", $dateNow);
+        $dateViagem = explode("/", $inicio_viagem);
+
+
+        if( $date[2] > $dateViagem[2] && $date[1] > $dateViagem[1]){
+
+            $querry = "INSERT INTO historico_viagens(foto_principal,lugar,foto_lugar,foto_descritiva,ascentos,roteiro,pacote,inicio,fim,valor,foto_banner) VALUES(:foto_principal,:lugar,:foto_lugar,:foto_descritiva,:ascentos,:roteiro,:pacote,:inicio,:fim,:valor,:foto_banner)";
+            $statement = $pdo->prepare($querry);
+            $statement->bindValue(":foto_principal",$array_uploaded[0]);
+            $statement->bindValue(":lugar",$lugar);
+            $statement->bindValue(":foto_lugar",$array_uploaded[1]);
+            $statement->bindValue(":foto_descritiva", $array_uploaded[2]);
+            $statement->bindValue(":ascentos",$ascentos);
+            $statement->bindValue(":roteiro",$roteiro);
+            $statement->bindValue(":pacote",$pacote);
+            $statement->bindValue(":inicio",$data_incioSQL);
+            $statement->bindValue(":fim",$data_fimSQL);
+            $statement->bindValue(":valor",$valor);
+            $statement->bindValue(":foto_banner",$array_uploaded[3]);
+            if($statement->execute()){
+                echo "deu tudo certo ! <br>";
+            }
+
+        }else{
+            $querry = "INSERT INTO viagens(foto_principal,lugar,foto_lugar,foto_descritiva,ascentos,roteiro,pacote,inicio,fim,valor,foto_banner) VALUES(:foto_principal,:lugar,:foto_lugar,:foto_descritiva,:ascentos,:roteiro,:pacote,:inicio,:fim,:valor,:foto_banner)";
+            $statement = $pdo->prepare($querry);
+            $statement->bindValue(":foto_principal",$array_uploaded[0]);
+            $statement->bindValue(":lugar",$lugar);
+            $statement->bindValue(":foto_lugar",$array_uploaded[1]);
+            $statement->bindValue(":foto_descritiva", $array_uploaded[2]);
+            $statement->bindValue(":ascentos",$ascentos);
+            $statement->bindValue(":roteiro",$roteiro);
+            $statement->bindValue(":pacote",$pacote);
+            $statement->bindValue(":inicio",$data_incioSQL);
+            $statement->bindValue(":fim",$data_fimSQL);
+            $statement->bindValue(":valor",$valor);
+            $statement->bindValue(":foto_banner",$array_uploaded[3]);
+            if($statement->execute()){
+                echo "deu tudo certo ! <br>";
+                
+            }
         }
+
     }
 
 }

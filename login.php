@@ -14,7 +14,7 @@
     <title>Viagens - Alex Tour</title>
 </head>
 <body class="loginBody" >
-<header>
+    <header>
         <div class="logo">
             <h1 id="title">
               Alex Tour
@@ -26,6 +26,21 @@
         <div class="toggle-menu">
         </div>
         <img id="imgLogo" src="./imgs/logoAlexTour-mobile.png" alt="">
+      <div class="conta">
+        <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/guest-male--v1.png" alt="guest-male--v1"/>
+        <section class="loginSide">
+          <a id="login" href="./login.php">Login</a>
+          <a id="cadastro" href="./cadastro.php">Cadastro</a>
+          <a class="sair" href="./src/logOut-server.php">Sair</a>  
+        </section>
+      </div>
+      <nav>
+        <ul>
+          <li><a id="adminTop" href="./admin.php">Admin</a></li>
+          <li><a href="./viagens.php"> Histórico de Viagens</li>
+          <li><a href="./">Página Principal</a></li>
+        </ul>
+      </nav>
     </header>
     <aside>
       <a href="./index.php">Página Principal</a>
@@ -37,7 +52,7 @@
     </aside>
     <form method="POST" action="./src/login-server.php">
         <div class="inputbox">
-          <input id="email" type="email" name="email" placeholder="Digite seu email">
+          <input autocomplete="no" id="email" type="email" name="email" placeholder="Digite seu email">
           <span>Email</span>
           <i></i>
         </div>
@@ -55,11 +70,29 @@
       let login = "<?php echo $_SESSION['login']?>";
       let tipoConta = "<?php echo $_SESSION['tipo']?>"
       let admin = document.querySelector("#admin");
+      let logOut = document.querySelector("#logOut");
+
+      const loginSide = document.querySelector(".loginSide");
+      const sair = document.querySelector(".sair");
+      const loginPart = document.querySelector("#login");
+      const cadastroPart = document.querySelector("#cadastro")
+      const adminTop = document.querySelector("#adminTop");
+
       if(tipoConta !== "admin" || login !== "logado"){
         admin.style.display = "none";
+        adminTop.style.display = "none";
       }
+
       if(login !== "logado"){
         logOut.style.display = "none";
+      }
+
+      if(login === "logado"){
+        
+        cadastroPart.style.display = "none";
+        loginPart.style.display = "none";        
+        sair.style.display = "inline";
+
       }
     </script>
 </body>
